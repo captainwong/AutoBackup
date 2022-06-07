@@ -19,7 +19,7 @@ private:
 	CRarManager();
 	virtual ~CRarManager();
 	//static LPCTSTR m_lpszRarExe;
-	static char m_szRarExe[1024];
+	static wchar_t m_szRarExe[1024];
 protected:
 	static LPCTSTR LoadRar_Exe();
 };

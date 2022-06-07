@@ -16,6 +16,8 @@ static char THIS_FILE[] = __FILE__;
 //CStringList CCleaner::extList;
 //CStringList CCleaner::exceptList;
 
+using jlib::win32::mfc::CFileOper;
+
 typedef  bool(*lpfnCompress)(LPCTSTR srcPath, LPCTSTR dstFolder, LPCTSTR dstName);
 typedef  bool(*lpfnDecompress)(LPCTSTR srcRarPath, LPCTSTR dstFolder);
 //////////////////////////////////////////////////////////////////////
@@ -149,7 +151,7 @@ void CCleaner::Compress(CString strpath)
 	PROCESS_INFORMATION pi;
 
 	CString cmd = "";
-	cmd.Format("C:\\Program Files\\WinRar\\rar.exe a %s.rar %s", strpath, strpath);
+	cmd.Format(L"C:\\Program Files\\WinRar\\rar.exe a %s.rar %s", strpath, strpath);
 	LPTSTR lpszCmd = cmd.GetBuffer(cmd.GetLength());
 	cmd.ReleaseBuffer();
 	BOOL bRet = CreateProcess(NULL, lpszCmd, NULL, NULL, FALSE, 0, NULL, NULL, &si, &pi);
@@ -185,12 +187,12 @@ void CCleaner::StartShowInfo()
 	StartCount();
 
 
-	if (m_hThread == INVALID_HANDLE_VALUE) {
+	/*if (m_hThread == INVALID_HANDLE_VALUE) {
 		m_hThread = CreateThread(NULL, 0, ThreadInfo, this, 0, NULL);
 		WaitTillThreadActive(m_hThread);
 		CloseHandle(m_hThread);
 		m_hThread = INVALID_HANDLE_VALUE;
-	}
+	}*/
 }
 
 DWORD WINAPI CCleaner::ThreadInfo(LPVOID lp)
@@ -232,15 +234,15 @@ void CCleaner::ShowInfo()
 BOOL CCleaner::CompressEx(const CString& srcFolder)
 {
 	HINSTANCE hRar = NULL;
-	MTVERIFY(hRar = ::LoadLibrary("rar.dll"));
+	(hRar = ::LoadLibrary(L"rar.dll"));
 	if (hRar == NULL) {
-		AfxMessageBox("LoadLibrary fail");
+		AfxMessageBox(L"LoadLibrary fail");
 		return 0;
 	}
 	lpfnCompress compress = NULL;
-	MTVERIFY(compress = (lpfnCompress)::GetProcAddress(hRar, "Compress"));
+	VERIFY(compress = (lpfnCompress)::GetProcAddress(hRar, "Compress"));
 
-	char src[MAX_PATH_EX], dst[MAX_PATH_EX], name[MAX_PATH_EX];
+	wchar_t src[MAX_PATH_EX], dst[MAX_PATH_EX], name[MAX_PATH_EX];
 	lstrcpy(src, srcFolder);
 	CString folder, rest;
 	int pos = srcFolder.ReverseFind('\\');

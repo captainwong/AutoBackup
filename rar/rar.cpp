@@ -7,6 +7,8 @@
 
 HINSTANCE hInst_rar;
 
+using jlib::log;
+
 BOOL APIENTRY DllMain( HANDLE hModule, 
                        DWORD  ul_reason_for_call, 
                        LPVOID lpReserved
@@ -16,20 +18,21 @@ BOOL APIENTRY DllMain( HANDLE hModule,
 	{
 		case DLL_PROCESS_ATTACH:
 			hInst_rar = (HINSTANCE)hModule;
-			CLog::SetOutputConsole(1);
+			//CLog::SetOutputConsole(1);
+			log::get_instance()->set_output_to_console();
 			//CLog::SetOutputLogFileName("rardll.log");
 			//CLog::SetOutputLogFile(1);
-			CLog::WriteLog("DLL_PROCESS_ATTACH\n");
+			JLOGA("DLL_PROCESS_ATTACH\n");
 			break;
 		case DLL_THREAD_ATTACH:
-			CLog::WriteLog("DLL_THREAD_ATTACH\n");
+			JLOGA("DLL_THREAD_ATTACH\n");
 			break;
 		case DLL_THREAD_DETACH:
-			CLog::WriteLog("DLL_THREAD_DETACH\n");
+			JLOGA("DLL_THREAD_DETACH\n");
 			break;
 		case DLL_PROCESS_DETACH:
 			CRarManager::Unload_Exe();
-			CLog::WriteLog("DLL_PROCESS_DETACH\n");
+			JLOGA("DLL_PROCESS_DETACH\n");
 			break;
     }
 	

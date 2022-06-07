@@ -5,7 +5,6 @@
 #include "stdafx.h"
 #include "AutoBackup.h"
 #include "LastTasks.h"
-
 #include "Cleaner.h"
 
 #ifdef _DEBUG
@@ -13,6 +12,8 @@
 static char THIS_FILE[]=__FILE__;
 #define new DEBUG_NEW
 #endif
+
+using jlib::win32::mfc::CFileOper;
 
 //////////////////////////////////////////////////////////////////////
 // Construction/Destruction
@@ -39,7 +40,7 @@ void CLastTasks::InitLastRecord()
 	if(m_folder.IsEmpty())
 		return;
 
-	char szFolder[MAX_PATH_EX];
+	wchar_t szFolder[MAX_PATH_EX];
 	lstrcpy(szFolder, m_folder.GetBuffer(m_folder.GetLength()));
 	//AfxMessageBox(szFolder);
 	if(!CreateDirectory(szFolder, NULL))
@@ -60,7 +61,7 @@ void CLastTasks::InitLastRecord()
 		bfind = find.FindNextFile();
 		if(find.IsDots())
 			continue;
-		if((CFileOper::GetFileExt(find.GetFilePath())).CompareNoCase("lnk") != 0)
+		if((CFileOper::GetFileExt(find.GetFilePath())).CompareNoCase(L"lnk") != 0)
 			continue;
 		task = find.GetFilePath();
 		target = GetTargetFromLnk(task);
@@ -92,7 +93,7 @@ BOOL CLastTasks::AddRecord(CString record)
 	record.Replace('\\', '-');
 	name = record;
 	link = m_folder + '\\' + name + ".lnk";
-	char szPath[MAX_PATH_EX], szLink[MAX_PATH_EX];
+	wchar_t szPath[MAX_PATH_EX], szLink[MAX_PATH_EX];
 	lstrcpy(szPath, strpath.GetBuffer(strpath.GetLength()));
 	strpath.ReleaseBuffer();
 	
@@ -102,7 +103,7 @@ BOOL CLastTasks::AddRecord(CString record)
 	return TRUE;
 }
 
-BOOL CLastTasks::CreateLink(LPSTR szPath, LPSTR szLink)
+BOOL CLastTasks::CreateLink(LPCTSTR szPath, LPCTSTR szLink)
 {
 	CString trace;
 	trace.Format(_T("CLastTasks::CreateLink path %s, name %s\n"), szPath, szLink);
@@ -110,7 +111,7 @@ BOOL CLastTasks::CreateLink(LPSTR szPath, LPSTR szLink)
 	HRESULT hres ;
 	IShellLink * psl ;
 	IPersistFile* ppf ;
-	WCHAR wsz[MAX_PATH_EX] ;
+	//WCHAR wsz[MAX_PATH_EX] ;
     //创建一个IShellLink实例
     hres = CoCreateInstance( CLSID_ShellLink, NULL,
         CLSCTX_INPROC_SERVER, IID_IShellLink,
@@ -129,11 +130,11 @@ BOOL CLastTasks::CreateLink(LPSTR szPath, LPSTR szLink)
 	if( FAILED( hres))
         return FALSE ;
 	// 确保数据文件名为ANSI格式
-	MultiByteToWideChar( CP_ACP, 0, szLink, -1, 
-		wsz, MAX_PATH_EX) ;
+	//MultiByteToWideChar( CP_ACP, 0, szLink, -1, 
+	//	wsz, MAX_PATH_EX) ;
     //调用IPersistFile::Save
     //保存快捷方式的数据文件 (*.lnk)
-	hres = ppf -> Save( wsz, STGM_READWRITE) ;
+	hres = ppf -> Save(szLink, STGM_READWRITE) ;
     //释放IPersistFile和IShellLink接口
 	ppf -> Release( ) ;
 	psl -> Release( ) ;
@@ -157,7 +158,7 @@ CString CLastTasks::GetTargetFromLnk(CString link)
 	CString LinkFileName = link;
 	CString Link, Temp = LinkFileName;
 	Temp.MakeLower();
-	if (Temp.Find(".lnk")==-1)           //Check if the name ends with .lnk
+	if (Temp.Find(L".lnk")==-1)           //Check if the name ends with .lnk
 		Link = LinkFileName + ".lnk";   //if not, append it
 	else
 		Link = LinkFileName;
@@ -178,12 +179,12 @@ CString CLastTasks::GetTargetFromLnk(CString link)
 		hres = psl->QueryInterface( IID_IPersistFile, (LPVOID *) &ppf);
 		if (SUCCEEDED(hres))
 		{
-			WCHAR wsz[MAX_PATH_EX];
+			//WCHAR wsz[MAX_PATH_EX];
 			//Get a UNICODE wide string wsz from the Link path
-			MultiByteToWideChar(CP_ACP, MB_PRECOMPOSED, Link, -1, wsz,      MAX_PATH_EX);
+			//MultiByteToWideChar(CP_ACP, MB_PRECOMPOSED, Link, -1, wsz,      MAX_PATH_EX);
 			
 			//Read the link into the persistent file
-			hres = ppf->Load(wsz, 0);
+			hres = ppf->Load(Link, 0);
 			
 			if (SUCCEEDED(hres))
 			{

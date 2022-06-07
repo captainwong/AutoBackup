@@ -4,13 +4,15 @@
 #include "stdafx.h"
 #include "AutoBackup.h"
 #include "CleanFilesDlg.h"
-#include "C:/dev/Global/jlib/win32/mfc/FileOper.h"
+
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
 #undef THIS_FILE
 static char THIS_FILE[] = __FILE__;
 #endif
+
+//using jlib::win32::mfc::CFileOper;
 
 /////////////////////////////////////////////////////////////////////////////
 // CCleanFilesDlg dialog
@@ -50,7 +52,7 @@ CString BrowseForFolder(HWND hwnd, CString title, CString folder)
 
 	BROWSEINFO br;
 	ZeroMemory(&br, sizeof(BROWSEINFO));
-	br.lpfn = BrowseCallbackProc;
+	br.lpfn = jlib::win32::mfc::BrowseCallbackProc;
 	br.ulFlags = BIF_RETURNONLYFSDIRS | BIF_NEWDIALOGSTYLE;
 	br.hwndOwner = hwnd;
 	br.lpszTitle = title;

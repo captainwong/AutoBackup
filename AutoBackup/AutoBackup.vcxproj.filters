@@ -45,9 +45,6 @@
     <ClInclude Include="ConfigDlg.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="FileOper.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="InputExtDlg.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -55,9 +52,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="LocalLock.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Log.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="MtVerify.h">
@@ -113,9 +107,6 @@
     <ClCompile Include="LastTasks.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Log.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="MultiProjectDlg.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -147,6 +138,12 @@
   </ItemGroup>
   <ItemGroup>
     <Image Include="res\AutoBackup.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="autobackup.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\loading.gif">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>

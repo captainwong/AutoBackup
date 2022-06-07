@@ -12,6 +12,7 @@
 static char THIS_FILE[] = __FILE__;
 #endif
 
+using jlib::win32::mfc::CFileOper;
 
 CString stdstrpath0 = stdstrpath + "\\src0";
 CString stdstrpath1 = stdstrpath + "\\src1";

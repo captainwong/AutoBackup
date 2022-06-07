@@ -24,7 +24,7 @@ void CRecordList::SetFolder(CString folder)
 {
 	if(folder.IsEmpty())
 	{
-		AfxMessageBox("");
+		AfxMessageBox(L"");
 		return;
 	}
 	if(m_pRecord == NULL)
@@ -57,7 +57,7 @@ END_MESSAGE_MAP()
 void CRecordList::InitList()
 {
 	this->ResetContent();
-	this->InsertString(++m_nIndex, "--select--");
+	this->InsertString(++m_nIndex, L"--select--");
 	m_pRecord->InitLastRecord();
 	CStringList record;
 	m_pRecord->GetLastRecord(record);
@@ -138,9 +138,9 @@ BOOL CRecordList::GetCurString(CString &path)
 	int cursel = this->GetCurSel();
 	if(cursel != 0)
 	{
-		char szText[MAX_PATH_EX];
+		wchar_t szText[MAX_PATH_EX];
 		GetLBText(cursel, szText);
-		path.Format("%s", szText);
+		path.Format(L"%s", szText);
 		return TRUE;
 	}
 	return FALSE;

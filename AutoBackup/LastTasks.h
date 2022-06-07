@@ -25,7 +25,7 @@ private:
 protected:
 	CString GetTargetFromLnk(CString link);
 	CString GetNameFromPath(CString path);
-	BOOL CreateLink(LPSTR szPath, LPSTR szLink);
+	BOOL CreateLink(LPCTSTR szPath, LPCTSTR szLink);
 	
 };
 

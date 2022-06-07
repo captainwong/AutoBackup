@@ -17,8 +17,8 @@
 #include <windows.h>
 #include <stdio.h>
 #include <tchar.h>
-#include "../../Global/mtverify.h"
-#include "log.h"
+//#include "../../Global/mtverify.h"
+#include <jlib/log.h>
 
 // TODO: reference additional headers your program requires here
 

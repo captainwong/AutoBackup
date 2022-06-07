@@ -22,6 +22,7 @@
 //#include <Afxcoll.h>
 //#include "c:/dev/Global/jlib/win32/MtVerify.h"
 #include <jlib/win32.h>
+#include <jlib/win32/mfc/FileOper.h>
 #include "Shlwapi.h"
 #pragma comment(lib, "Shlwapi.lib")
 #include <imagehlp.h>
@@ -29,7 +30,7 @@
 
 const CString stdstrpath = "C:\\Documents and Settings\\All Users\\src";
 const CString stddstpath = "C:\\Documents and Settings\\All Users\\dst";
-#include "FileOper.h"
+
 
 #define SAFEDELETEARR(p) {if(p){delete[] p; p = nullptr;}}
 

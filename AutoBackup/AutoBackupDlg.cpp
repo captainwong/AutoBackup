@@ -16,6 +16,8 @@
 static char THIS_FILE[] = __FILE__;
 #endif
 
+using jlib::win32::mfc::CFileOper;
+
 
 /////////////////////////////////////////////////////////////////////////////
 // CAboutDlg dialog used for App About
@@ -293,10 +295,10 @@ void CAutoBackupDlg::OnOK()
 		}
 		if (pass) {
 			GetCapture();
-			MessageBox("backup ok!");
+			MessageBox(L"backup ok!");
 			CDialog::OnOK();
 		} else
-			MessageBox("backup fail!");
+			MessageBox(L"backup fail!");
 	}
 }
 

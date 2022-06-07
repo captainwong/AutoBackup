@@ -68,6 +68,6 @@ void CPathEdit::PreSubclassWindow()
 void CPathEdit::OnLButtonDblClk(UINT nFlags, CPoint point) 
 {
 	// TODO: Add your message handler code here and/or call default
-	SetWindowText("");
+	SetWindowText(L"");
 	CEdit::OnLButtonDblClk(nFlags, point);
 }

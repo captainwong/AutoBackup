@@ -1,4 +1,4 @@
-//Microsoft Developer Studio generated resource script.
+// Microsoft Visual C++ generated resource script.
 //
 #include "resource.h"
 
@@ -13,13 +13,11 @@
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
-// Chinese (P.R.C.) resources
+// Chinese (Simplified, PRC) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)
-#ifdef _WIN32
 LANGUAGE LANG_CHINESE, SUBLANG_CHINESE_SIMPLIFIED
 #pragma code_page(936)
-#endif //_WIN32
 
 #ifdef APSTUDIO_INVOKED
 /////////////////////////////////////////////////////////////////////////////
@@ -27,18 +25,18 @@ LANGUAGE LANG_CHINESE, SUBLANG_CHINESE_SIMPLIFIED
 // TEXTINCLUDE
 //
 
-1 TEXTINCLUDE DISCARDABLE 
+1 TEXTINCLUDE 
 BEGIN
     "resource.h\0"
 END
 
-2 TEXTINCLUDE DISCARDABLE 
+2 TEXTINCLUDE 
 BEGIN
     "#include ""afxres.h""\r\n"
     "\0"
 END
 
-3 TEXTINCLUDE DISCARDABLE 
+3 TEXTINCLUDE 
 BEGIN
     "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
     "#define _AFX_NO_OLE_RESOURCES\r\n"
@@ -66,15 +64,16 @@ END
 
 // Icon with lowest ID value placed first to ensure application icon
 // remains consistent on all systems.
-IDR_MAINFRAME           ICON    DISCARDABLE     "autobackup.ico"
+IDR_MAINFRAME           ICON                    "autobackup.ico"
+
 
 /////////////////////////////////////////////////////////////////////////////
 //
 // Dialog
 //
 
-IDD_ABOUTBOX DIALOG DISCARDABLE  0, 0, 235, 206
-STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+IDD_ABOUTBOX DIALOG 0, 0, 235, 206
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "关于 AutoBackup"
 FONT 9, "宋体"
 BEGIN
@@ -83,17 +82,15 @@ BEGIN
     LTEXT           "版权所有 (C) 2013 Captain Jack",IDC_STATIC,40,25,132,8
     DEFPUSHBUTTON   "确定",IDOK,178,7,50,14,WS_GROUP
     LTEXT           "本次更新：",IDC_STATIC,27,45,102,16
-    EDITTEXT        IDC_EDIT1,31,62,172,125,ES_MULTILINE | ES_AUTOHSCROLL | 
-                    ES_READONLY
+    EDITTEXT        IDC_EDIT1,31,62,172,125,ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY
 END
 
 IDD_AUTOBACKUP_DIALOG DIALOGEX 0, 0, 268, 269
-STYLE DS_MODALFRAME | WS_MINIMIZEBOX | WS_POPUP | WS_VISIBLE | WS_CAPTION | 
-    WS_SYSMENU
+STYLE DS_SETFONT | DS_MODALFRAME | WS_MINIMIZEBOX | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
 EXSTYLE WS_EX_APPWINDOW
 CAPTION "AutoBackup"
 MENU IDR_MENU1
-FONT 9, "宋体"
+FONT 9, "宋体", 0, 0, 0x1
 BEGIN
     DEFPUSHBUTTON   "备份",IDOK,49,241,50,14
     PUSHBUTTON      "退出",IDCANCEL,165,241,50,14
@@ -104,26 +101,18 @@ BEGIN
     GROUPBOX        "path",IDC_STATIC,11,102,240,36
     EDITTEXT        IDC_EDIT3,13,162,210,14,ES_AUTOHSCROLL
     GROUPBOX        "name",IDC_STATIC,11,149,240,36
-    CONTROL         "clean intermediate files",IDC_CHECK1,"Button",
-                    BS_AUTOCHECKBOX | WS_TABSTOP,13,201,112,10
-    CONTROL         "compress rar file",IDC_CHECK3,"Button",BS_AUTOCHECKBOX | 
-                    WS_TABSTOP,13,216,84,10
-    COMBOBOX        IDC_COMBO1,15,62,210,97,CBS_DROPDOWN | CBS_SORT | 
-                    WS_VSCROLL | WS_TABSTOP
-    COMBOBOX        IDC_COMBO2,14,116,210,105,CBS_DROPDOWN | CBS_SORT | 
-                    WS_VSCROLL | WS_TABSTOP
-    CONTROL         "single project",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON,
-                    14,23,72,10
-    CONTROL         "multi project",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,
-                    100,23,68,10
-    CONTROL         "top-most",IDC_CHECK4,"Button",BS_AUTOCHECKBOX | 
-                    WS_TABSTOP,182,23,54,10
-    CONTROL         "delete rar source",IDC_CHECK2,"Button",BS_AUTOCHECKBOX | 
-                    WS_TABSTOP,116,216,104,10
+    CONTROL         "clean intermediate files",IDC_CHECK1,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,13,201,112,10
+    CONTROL         "compress rar file",IDC_CHECK3,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,13,216,84,10
+    COMBOBOX        IDC_COMBO1,15,62,210,97,CBS_DROPDOWN | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_COMBO2,14,116,210,105,CBS_DROPDOWN | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    CONTROL         "single project",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON,14,23,72,10
+    CONTROL         "multi project",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,100,23,68,10
+    CONTROL         "top-most",IDC_CHECK4,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,182,23,54,10
+    CONTROL         "delete rar source",IDC_CHECK2,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,116,216,104,10
 END
 
-IDD_DIALOG1 DIALOG DISCARDABLE  0, 0, 173, 62
-STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+IDD_DIALOG1 DIALOG 0, 0, 173, 62
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Select a folder and clean"
 FONT 10, "System"
 BEGIN
@@ -132,8 +121,8 @@ BEGIN
     PUSHBUTTON      "clean",IDC_BUTTON2,56,36,50,14
 END
 
-IDD_DIALOG2 DIALOG DISCARDABLE  0, 0, 381, 143
-STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+IDD_DIALOG2 DIALOG 0, 0, 381, 143
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "select project path"
 FONT 10, "System"
 BEGIN
@@ -141,71 +130,58 @@ BEGIN
     PUSHBUTTON      "Cancel",IDCANCEL,197,115,50,14
     GROUPBOX        "project path",IDC_STATIC,13,13,355,96
     PUSHBUTTON      "...",IDC_BUTTON1,177,24,11,10
-    COMBOBOX        IDC_COMBO1,16,24,158,97,CBS_DROPDOWN | CBS_SORT | 
-                    WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_COMBO1,16,24,158,97,CBS_DROPDOWN | CBS_SORT | WS_VSCROLL | WS_TABSTOP
     PUSHBUTTON      "...",IDC_BUTTON3,177,41,11,10
-    COMBOBOX        IDC_COMBO2,16,41,158,97,CBS_DROPDOWN | CBS_SORT | 
-                    WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_COMBO2,16,41,158,97,CBS_DROPDOWN | CBS_SORT | WS_VSCROLL | WS_TABSTOP
     PUSHBUTTON      "...",IDC_BUTTON4,177,58,11,10
-    COMBOBOX        IDC_COMBO3,16,58,158,97,CBS_DROPDOWN | CBS_SORT | 
-                    WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_COMBO3,16,58,158,97,CBS_DROPDOWN | CBS_SORT | WS_VSCROLL | WS_TABSTOP
     PUSHBUTTON      "...",IDC_BUTTON5,177,75,11,10
-    COMBOBOX        IDC_COMBO4,16,75,158,97,CBS_DROPDOWN | CBS_SORT | 
-                    WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_COMBO4,16,75,158,97,CBS_DROPDOWN | CBS_SORT | WS_VSCROLL | WS_TABSTOP
     PUSHBUTTON      "...",IDC_BUTTON6,177,92,11,10
-    COMBOBOX        IDC_COMBO5,16,92,158,97,CBS_DROPDOWN | CBS_SORT | 
-                    WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_COMBO5,16,92,158,97,CBS_DROPDOWN | CBS_SORT | WS_VSCROLL | WS_TABSTOP
     PUSHBUTTON      "...",IDC_BUTTON7,353,24,11,10
-    COMBOBOX        IDC_COMBO6,192,24,158,97,CBS_DROPDOWN | CBS_SORT | 
-                    WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_COMBO6,192,24,158,97,CBS_DROPDOWN | CBS_SORT | WS_VSCROLL | WS_TABSTOP
     PUSHBUTTON      "...",IDC_BUTTON8,353,41,11,10
-    COMBOBOX        IDC_COMBO7,192,41,158,97,CBS_DROPDOWN | CBS_SORT | 
-                    WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_COMBO7,192,41,158,97,CBS_DROPDOWN | CBS_SORT | WS_VSCROLL | WS_TABSTOP
     PUSHBUTTON      "...",IDC_BUTTON9,353,58,11,10
-    COMBOBOX        IDC_COMBO8,192,58,158,97,CBS_DROPDOWN | CBS_SORT | 
-                    WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_COMBO8,192,58,158,97,CBS_DROPDOWN | CBS_SORT | WS_VSCROLL | WS_TABSTOP
     PUSHBUTTON      "...",IDC_BUTTON10,353,75,11,10
-    COMBOBOX        IDC_COMBO9,192,75,158,97,CBS_DROPDOWN | CBS_SORT | 
-                    WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_COMBO9,192,75,158,97,CBS_DROPDOWN | CBS_SORT | WS_VSCROLL | WS_TABSTOP
     PUSHBUTTON      "...",IDC_BUTTON11,353,92,11,10
-    COMBOBOX        IDC_COMBO10,192,92,158,97,CBS_DROPDOWN | CBS_SORT | 
-                    WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_COMBO10,192,92,158,97,CBS_DROPDOWN | CBS_SORT | WS_VSCROLL | WS_TABSTOP
 END
 
-IDD_DIALOG3 DIALOG DISCARDABLE  0, 0, 269, 141
-STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+IDD_DIALOG3 DIALOG 0, 0, 269, 141
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "cleaning..."
 FONT 10, "System"
 BEGIN
-    LISTBOX         IDC_LIST1,7,7,255,127,LBS_NOINTEGRALHEIGHT | WS_VSCROLL | 
-                    WS_TABSTOP
+    LISTBOX         IDC_LIST1,7,7,255,127,LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
 END
 
-IDD_DIALOG_CONFIG DIALOG DISCARDABLE  0, 0, 216, 168
-STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+IDD_DIALOG_CONFIG DIALOG 0, 0, 216, 168
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "配置需要清除的文件格式"
 FONT 12, "Tahoma"
 BEGIN
-    LISTBOX         IDC_LIST1,20,19,61,134,LBS_SORT | LBS_NOINTEGRALHEIGHT | 
-                    WS_VSCROLL | WS_TABSTOP
+    LISTBOX         IDC_LIST1,20,19,61,134,LBS_SORT | LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
     PUSHBUTTON      "+",IDC_BUTTON_ADD,95,106,25,12
     PUSHBUTTON      "<<",IDC_BUTTON_MOVL,95,50,25,12
     PUSHBUTTON      ">>",IDC_BUTTON_MOVR,95,78,25,12
-    LISTBOX         IDC_LIST2,139,19,61,134,LBS_SORT | LBS_NOINTEGRALHEIGHT | 
-                    WS_VSCROLL | WS_TABSTOP
+    LISTBOX         IDC_LIST2,139,19,61,134,LBS_SORT | LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
     GROUPBOX        "格式库",IDC_STATIC,14,9,73,146
     GROUPBOX        "当前需要清除的格式",IDC_STATIC,130,9,73,146
 END
 
-IDD_DIALOG5 DIALOG DISCARDABLE  0, 0, 212, 129
-STYLE WS_POPUP
+IDD_DIALOG5 DIALOG 0, 0, 212, 129
+STYLE DS_SETFONT | WS_POPUP
 FONT 10, "System"
 BEGIN
     LTEXT           "",IDC_GIF,1,1,211,128
 END
 
-IDD_DIALOG_EXT_STRING_INPUT DIALOG DISCARDABLE  0, 0, 141, 43
-STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+IDD_DIALOG_EXT_STRING_INPUT DIALOG 0, 0, 141, 43
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Input a ext string"
 FONT 10, "System"
 BEGIN
@@ -213,24 +189,20 @@ BEGIN
     EDITTEXT        IDC_EDIT1,16,14,44,14,ES_AUTOHSCROLL
 END
 
-IDD_DIALOG_COMPRESS_FOLDER DIALOG DISCARDABLE  0, 0, 187, 82
-STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+IDD_DIALOG_COMPRESS_FOLDER DIALOG 0, 0, 187, 82
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Compress folder"
 FONT 10, "System"
 BEGIN
     DEFPUSHBUTTON   "OK",IDOK,123,55,50,14
     EDITTEXT        IDC_EDIT1,14,17,142,14,ES_AUTOHSCROLL
     PUSHBUTTON      "...",IDC_BUTTON1,161,17,12,11
-    CONTROL         "single folder",IDC_RADIO_SINGLE_FOLDER,"Button",
-                    BS_AUTORADIOBUTTON,14,42,57,10
-    CONTROL         "sub folders",IDC_RADIO_SUB_FOLDERS,"Button",
-                    BS_AUTORADIOBUTTON,75,42,53,10
-    CONTROL         "delete old folder",IDC_CHECK1,"Button",BS_AUTOCHECKBOX | 
-                    WS_TABSTOP,14,59,69,10
+    CONTROL         "single folder",IDC_RADIO_SINGLE_FOLDER,"Button",BS_AUTORADIOBUTTON,14,42,57,10
+    CONTROL         "sub folders",IDC_RADIO_SUB_FOLDERS,"Button",BS_AUTORADIOBUTTON,75,42,53,10
+    CONTROL         "delete old folder",IDC_CHECK1,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,14,59,69,10
 END
 
 
-#ifndef _MAC
 /////////////////////////////////////////////////////////////////////////////
 //
 // Version
@@ -253,18 +225,13 @@ BEGIN
     BEGIN
         BLOCK "080404b0"
         BEGIN
-            VALUE "Comments", "\0"
-            VALUE "CompanyName", "\0"
-            VALUE "FileDescription", "AutoBackup Microsoft 基础类应用程序\0"
-            VALUE "FileVersion", "1, 1, 0, 1\0"
-            VALUE "InternalName", "AutoBackup\0"
-            VALUE "LegalCopyright", "版权所有 (C) 2013\0"
-            VALUE "LegalTrademarks", "\0"
-            VALUE "OriginalFilename", "AutoBackup.EXE\0"
-            VALUE "PrivateBuild", "\0"
-            VALUE "ProductName", "AutoBackup 应用程序\0"
-            VALUE "ProductVersion", "1, 1, 0, 1\0"
-            VALUE "SpecialBuild", "\0"
+            VALUE "FileDescription", "AutoBackup Microsoft 基础类应用程序"
+            VALUE "FileVersion", "1, 1, 0, 1"
+            VALUE "InternalName", "AutoBackup"
+            VALUE "LegalCopyright", "版权所有 (C) 2013"
+            VALUE "OriginalFilename", "AutoBackup.EXE"
+            VALUE "ProductName", "AutoBackup 应用程序"
+            VALUE "ProductVersion", "1, 1, 0, 1"
         END
     END
     BLOCK "VarFileInfo"
@@ -273,8 +240,6 @@ BEGIN
     END
 END
 
-#endif    // !_MAC
-
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -282,7 +247,7 @@ END
 //
 
 #ifdef APSTUDIO_INVOKED
-GUIDELINES DESIGNINFO DISCARDABLE 
+GUIDELINES DESIGNINFO
 BEGIN
     IDD_ABOUTBOX, DIALOG
     BEGIN
@@ -356,7 +321,7 @@ END
 // Menu
 //
 
-IDR_MENU1 MENU DISCARDABLE 
+IDR_MENU1 MENU
 BEGIN
     MENUITEM "Clean",                       IDM_CLEAN
     MENUITEM "Compress",                    IDM_COMPRESS
@@ -367,29 +332,23 @@ END
 
 /////////////////////////////////////////////////////////////////////////////
 //
-// 24
-//
-
-1                       24      DISCARDABLE     "xpStyle.manifest"
-
-/////////////////////////////////////////////////////////////////////////////
-//
 // IMAGE
 //
 
-IDR_IMAGE1              IMAGE   DISCARDABLE     "res\\loading.gif"
+IDR_IMAGE1              IMAGE                   "res\\loading.gif"
+
 
 /////////////////////////////////////////////////////////////////////////////
 //
 // String Table
 //
 
-STRINGTABLE DISCARDABLE 
+STRINGTABLE
 BEGIN
     IDS_ABOUTBOX            "关于 AutoBackup(&A)..."
 END
 
-#endif    // Chinese (P.R.C.) resources
+#endif    // Chinese (Simplified, PRC) resources
 /////////////////////////////////////////////////////////////////////////////
 
 

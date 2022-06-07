@@ -12,6 +12,8 @@
 static char THIS_FILE[] = __FILE__;
 #endif
 
+using jlib::win32::mfc::CFileOper;
+
 /////////////////////////////////////////////////////////////////////////////
 // CCompressFolderDlg dialog
 static BOOL bSingleFolderOrSubFolders = TRUE;

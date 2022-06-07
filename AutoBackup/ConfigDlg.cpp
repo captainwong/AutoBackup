@@ -12,7 +12,7 @@
 static char THIS_FILE[] = __FILE__;
 #endif
 
-LPCTSTR INI_SECTION = "ext";
+LPCTSTR INI_SECTION = L"ext";
 /////////////////////////////////////////////////////////////////////////////
 // CConfigDlg dialog
 
